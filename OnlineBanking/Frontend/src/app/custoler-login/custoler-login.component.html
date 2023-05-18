@@ -1,0 +1,26 @@
+
+<div class ="container">
+    
+    <h3 Class ="text-center">Customer Login</h3>
+<hr/>
+<div class="card-body">
+   
+
+        <div class ="from-group">
+            <label>Customer ID </label>
+            <input type="number" class="form-control" id="CustomerId"
+             [(ngModel)]="customer.customerId" name ="customerId">
+        </div>
+
+        <div class ="from-group">
+            <label> Password </label>
+            <input type="password" class="form-control" id="Password"
+             [(ngModel)]="customer.password" name ="password">
+        </div>
+        
+        <br/>
+        <button (click) = "customerLogin()" class = "btn btn-primary"> Login</button>
+      
+    
+</div>
+ </div>

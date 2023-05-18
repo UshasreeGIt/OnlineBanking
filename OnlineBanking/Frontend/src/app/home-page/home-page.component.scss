@@ -1,0 +1,33 @@
+app-home-page-header{
+    position: fixed;
+    width: 100%;
+    top:0px;
+    left: 0;
+   right: 0;
+    height: 4rem;
+    z-index: 2;
+
+}
+app-side-nav{
+    position: absolute;
+    left: 0rem;
+    width: 280px;
+    height: 96vh;
+    box-shadow: 0px 0px 10px 0px 0px 10px  rgb(236, 234, 234)(rgb(223, 221, 221));
+    background-color: rgb(236, 234, 234);
+    border-top: 1px solid rgb(151, 150, 150);
+}
+main{
+    position: absolute;
+    width: 100%;
+    top:4rem;
+    left: 0;
+    z-index: 1;
+}
+
+
+.display-area{
+    position: absolute;
+    left: 280px;
+    width:70%;
+}

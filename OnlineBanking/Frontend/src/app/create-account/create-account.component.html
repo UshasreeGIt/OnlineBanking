@@ -1,0 +1,32 @@
+<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create Account Information</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+    
+       
+      </div>
+      <div class="card-body">
+    
+          <div class="from-group">
+            <label class="form-check-label" for="accountType">Account Type: </label>
+              <select    (change)="update($event)"    >
+                <option  class="form-control"  *ngFor="let acctype of accounttypes"  [value]="acctype.id">  {{acctype.id}}</option>
+              
+              </select>
+          </div>
+          <br />
+          <div class="form-group">
+            <label class="form-check-label"> Account Nick Name : </label>
+            <input  type="text"   id="accNickName" [(ngModel)]="account.accountNickName"
+                name="accNickName">
+          </div>
+         <br />          
+          <br />
+      <button class="btn btn-success" data-bs-dismiss="modal" (click)="createAccount()">Create</button>
+        
+    </div>
+  </div>
+</div>
+      

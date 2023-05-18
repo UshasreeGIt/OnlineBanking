@@ -1,0 +1,15 @@
+<h5>Hello {{customer.customerName}}</h5>
+
+<div class="side-nav-content " >
+    <ul class="nav-list" >
+        <li class="nav-list-item " *ngFor="let data of navData">
+            <i class="sidenav-link-icon" [class]="data.icon"></i>
+            <span class="sidenav-link-text">
+                <a   class="side-nav-link" [routerLink]="[data.routeLink+'/'+customer.customerId]"routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">{{data.label}}</a>
+            </span>
+        </li>
+
+    </ul>
+  
+         
+</div>

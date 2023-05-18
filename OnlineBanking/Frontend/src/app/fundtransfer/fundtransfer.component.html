@@ -1,0 +1,75 @@
+<div class="modal fade" id="exampleModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Transfer & Pay</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      
+         
+        </div>
+        <div class="card-body">
+      
+            <div class="from-group">
+              <label class="form-check-label" for="transactionType">Transfer Type: </label>
+                <select    (change)="updatetranstype($event)"    >
+                  <option  class="form-control"  *ngFor="let transtype of transferTypes"  [value]="transtype.id">  {{transtype.id}}</option>
+                
+                </select>
+            </div>
+            <br />            
+            <br/>
+            <div class="from-group">
+              <label class="form-check-label" for="accountType">Account Type: </label>
+                <select    (change)="updateaccounttype($event)"    >
+                  <option  class="form-control"  *ngFor="let acctype of accounttypes"  [value]="acctype.id">  {{acctype.id}}</option>
+                
+                </select>
+            </div>
+            <br/>
+            <br/>
+            <div class="from-group" *ngIf="accountType===Checking">
+              <label class="form-check-label" for="accountNumber">Account Number: </label>
+                <select    (change)="updateaccountNumber($event)"  >
+                  <option  class="form-control"  *ngFor="let acc  of checkingAccslist"  [value]="acc">  {{acc}}</option>
+                
+                </select>
+                
+            </div>
+            
+              <div class="from-group" *ngIf="accountType===Savings">
+              <label class="form-check-label" for="accountNumber">Account Number: </label>
+                <select    (change)="updateaccountNumber($event)"  >
+                  <option  class="form-control"  *ngFor="let acc  of savingsAccslist"  [value]="acc">  {{acc}}</option>
+                
+                </select>
+                
+            </div>
+            <div class="from-group" *ngIf="accountType===Termdeposit">
+              <label class="form-check-label" for="accountNumber">Account Number: </label>
+                <select    (change)="updateaccountNumber($event)"  >
+                  <option  class="form-control"  *ngFor="let acc  of termAccountslist"  [value]="acc">  {{acc}}</option>
+                
+                </select>
+                
+            </div>
+            <br/>
+            <br/>
+            <div class="form-group">
+              <label class="form-check-label"> Transaction Amount : </label>
+              <input  type="number"   id="transAmount" [(ngModel)]="transferDetails.transactionAmount"
+                  name="transAmount">
+            </div>
+           <br />   
+           <div class="form-group">
+            <label class="form-check-label"> Currency: </label>
+            <input  type="text"   id="Currency" [(ngModel)]="transferDetails.currency"
+                name="Currency">
+          </div>
+         <br />           
+            <br />
+        <button class="btn btn-success" data-bs-dismiss="modal" (click)="transferAmount()">Create</button>
+          
+      </div>
+    </div>
+  </div>
+        

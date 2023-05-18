@@ -1,0 +1,67 @@
+
+<div class="display-area p-3">
+    <div class="row g-0">
+        <div class="col-sm-15" align="right">
+        <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal"
+        data-bs-target="#exampleModal" [routerLink]="['fundTransfer'+'/'+customer.customerId]"  >Fund Transfer </button>
+        </div>
+    </div>
+
+    <div class = "row">
+        <h2> Transaction History</h2>
+    </div>
+    <div>
+        <div class="from-group">
+            <label class="form-check-label" for="accType">Account Type: </label>
+              <select    (change)="updateaccttype($event)"    >
+                <option  class="form-control"  *ngFor="let acctype of accounttypes"  [value]="acctype.id">  {{acctype.id}}</option>
+              
+              </select>   
+              &nbsp;&nbsp;           
+                <label class="form-check-label" for="accNumber">Account Number: </label>
+                  <select    (change)="updateaccNumber($event)"  *ngIf="accType===Checking" >
+                    <option  class="form-control"  *ngFor="let acc  of checkingAccslist"  [value]="acc">  {{acc}}</option>
+                  
+                  </select>    
+               
+                  <select    (change)="updateaccNumber($event)" *ngIf="accType===Savings" >
+                    <option  class="form-control"  *ngFor="let acc  of savingsAccslist"  [value]="acc">  {{acc}}</option>
+                  
+                  </select>            
+                  <select    (change)="updateaccNumber($event)" *ngIf="accType===Termdeposit" >
+                    <option  class="form-control"  *ngFor="let acc  of termAccountslist"  [value]="acc">  {{acc}}</option>
+                  
+                  </select>
+                  &nbsp;&nbsp;
+                  <button class="btn btn-success" (click)="getTransactionHistory()">Search</button>
+              
+          </div> 
+    </div>
+    <table class = "table table-striped table-bordered" [hidden]="isShowtable">
+        <thead>
+            <tr>
+                <th> Transaction Number</th>
+                <th> Account Number </th>
+                <th> Account Type</th>
+                <th> Transaction Type </th>
+                <th> Transaction Amount </th>
+                <th> Currency </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let trans of transferDetailslist" >
+                <td> {{ trans.transaId }} </td>
+                <td> {{ trans.accountNumber }} </td>
+                <td> {{ trans.accountType }} </td>
+                <td> {{ trans.transactionType }} </td>
+                <td> {{ trans.transactionAmount }} </td>
+                <td> {{ trans.currency }} </td>
+            </tr>
+        </tbody>
+    </table>
+    <div>
+
+        <router-outlet></router-outlet>
+    </div>
+ </div>
+        

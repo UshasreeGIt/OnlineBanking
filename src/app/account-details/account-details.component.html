@@ -1,0 +1,236 @@
+
+<div class="display-area p-3">
+    <div class="row g-0">
+        <div class="col-sm-15" align="right">
+        <button type="button" class="btn btn-outline-dark btn-lg" data-bs-toggle="modal"
+        data-bs-target="#exampleModal" [routerLink]="['createAccount'+'/'+customer.customerId]"  >Create Account </button>
+        </div>
+       
+        <div class="col ps-2">
+        <br>
+        <br>
+       
+        <div class="row g-0 mt-3">
+                      <div class="col-md-10 text-left" >
+                            <h3>Checking Accounts</h3>
+                        </div>
+        <div class="col-md"  *ngFor = "let account  of checkingAccs "> 
+            <ul class="nav-list" >
+                <li class="nav-list-item " >  
+    <mat-accordion class="example-headers-align" multi>
+        <!-- #enddocregion multi -->
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <div class="my-panel">
+                <div class="col-md-10 text-left">
+                   <span class="name">{{account.accountNickName}}</span>
+                </div>
+                <div class="col-md-2 d-flex justify-content-center align-items-center">
+                    <div class="btn-group" role="group">
+                        <div *ngIf="account.accountActive!=false ; else elseBlock">
+                            <span class="name col-md-1">Active </span>
+                    </div>
+                    <ng-template #elseBlock> <span class="name">Deactivated</span></ng-template>
+                    </div>
+                </div>
+      
+            </div>
+          </mat-expansion-panel-header>
+      
+          <div class = "row g-0 mt-3">
+            <div class="col-md">
+                <table class="table table-hover mx-auto">
+                    <thead class =" text-center fs-5 fst-italic text-secondary">
+                        <tr>
+                            <td colspan="2">Account Details</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Account Number</td>
+                            <td>{{account.accountNumber}}</td>
+                        </tr>
+                        <tr>
+                            <td>Account Type</td>
+                            <td>{{account.accountType}}</td>
+                        </tr>
+                        <tr>
+                            <td>Account NickName</td>
+                            <td>{{account.accountNickName}}</td>
+                        </tr>
+                        <tr>
+                            <td>Account Active Status</td>
+                            <td> <div *ngIf="account.accountActive!=false ; else elseBlock2">
+                                <span class="name col-md-1">Active </span>
+                        </div>
+                        <ng-template #elseBlock2> <span class="name">Deactivated</span></ng-template>
+                    </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="account.accountActive!=false ; else elseBlock3">
+                <button (click) = "deactivateAccount(account.accountNumber)" class = "btn btn-primary"> Deactivate</button>
+                </div>
+                <ng-template #elseBlock3><button (click) = "activateAccount(account.accountNumber)" class = "btn btn-primary">Activate</button></ng-template>
+            </div>
+
+            
+            </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+      </li>
+      </ul>
+      
+    </div>
+    <br>
+    <div class="col-md-10 text-left" >
+        <h3>TermDeposit Accounts</h3>
+    </div>
+<div class="col-md"  *ngFor = "let td  of termAccounts "> 
+<ul class="nav-list" >
+<li class="nav-list-item " >  
+<mat-accordion class="example-headers-align" multi>
+<!-- #enddocregion multi -->
+<mat-expansion-panel>
+<mat-expansion-panel-header>
+<div class="my-panel">
+<div class="col-md-10 text-left">
+<span class="name">{{td.accountNickName}}</span>
+</div>
+<div class="col-md-2 d-flex justify-content-center align-items-center">
+<div class="btn-group" role="group">
+    <div *ngIf="td.accountActive!=false ; else elseBlock">
+        <span class="name col-md-1">Active </span>
+</div>
+<ng-template #elseBlock> <span class="name">Deactivated</span></ng-template>
+</div>
+</div>
+
+</div>
+</mat-expansion-panel-header>
+
+<div class = "row g-0 mt-3">
+<div class="col-md">
+<table class="table table-hover mx-auto">
+<thead class =" text-center fs-5 fst-italic text-secondary">
+    <tr>
+        <td colspan="2">Account Details</td>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>Account Number</td>
+        <td>{{td.accountNumber}}</td>
+    </tr>
+    <tr>
+        <td>Account Type</td>
+        <td>{{td.accountType}}</td>
+    </tr>
+    <tr>
+        <td>Account NickName</td>
+        <td>{{td.accountNickName}}</td>
+    </tr>
+    <tr>
+        <td>Account Active Status</td>
+        <td> <div *ngIf="td.accountActive!=false ; else elseBlock2">
+            <span class="name col-md-1">Active </span>
+    </div>
+    <ng-template #elseBlock2> <span class="name">Deactivated</span></ng-template>
+</td>
+    </tr>
+</tbody>
+</table>
+<div *ngIf="td.accountActive!=false ; else elseBlock3">
+<button (click) = "deactivateAccount(td.accountNumber)" class = "btn btn-primary"> Deactivate</button>
+</div>
+<ng-template #elseBlock3><button (click) = "activateAccount(td.accountNumber)" class = "btn btn-primary">Activate</button></ng-template>
+</div>
+
+
+</div>
+</mat-expansion-panel>
+</mat-accordion>
+</li>
+</ul>
+
+</div>
+    <br>
+    <div class="col-md-10 text-left" >
+        <h3>Saving Accounts</h3>
+    </div>
+<div class="col-md"  *ngFor = "let sav  of savingsAccs "> 
+<ul class="nav-list" >
+<li class="nav-list-item " >  
+<mat-accordion class="example-headers-align" multi>
+<!-- #enddocregion multi -->
+<mat-expansion-panel>
+<mat-expansion-panel-header>
+<div class="my-panel">
+<div class="col-md-10 text-left">
+<span class="name">{{sav.accountNickName}}</span>
+</div>
+<div class="col-md-2 d-flex justify-content-center align-items-center">
+<div class="btn-group" role="group">
+    <div *ngIf="sav.accountActive!=false ; else elseBlock">
+        <span class="name col-md-1">Active </span>
+</div>
+<ng-template #elseBlock> <span class="name">Deactivated</span></ng-template>
+</div>
+</div>
+
+</div>
+</mat-expansion-panel-header>
+
+<div class = "row g-0 mt-3">
+<div class="col-md">
+<table class="table table-hover mx-auto">
+<thead class =" text-center fs-5 fst-italic text-secondary">
+    <tr>
+        <td colspan="2">Account Details</td>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>Account Number</td>
+        <td>{{sav.accountNumber}}</td>
+    </tr>
+    <tr>
+        <td>Account Type</td>
+        <td>{{sav.accountType}}</td>
+    </tr>
+    <tr>
+        <td>Account NickName</td>
+        <td>{{sav.accountNickName}}</td>
+    </tr>
+    <tr>
+        <td>Account Active Status</td>
+        <td> <div *ngIf="sav.accountActive!=false ; else elseBlock2">
+            <span class="name col-md-1">Active </span>
+    </div>
+    <ng-template #elseBlock2> <span class="name">Deactivated</span></ng-template>
+</td>
+    </tr>
+</tbody>
+</table>
+<div *ngIf="sav.accountActive!=false ; else elseBlock3">
+<button (click) = "deactivateAccount(sav.accountNumber)" class = "btn btn-primary"> Deactivate</button>
+</div>
+<ng-template #elseBlock3><button (click) = "activateAccount(sav.accountNumber)" class = "btn btn-primary">Activate</button></ng-template>
+</div>
+
+
+</div>
+</mat-expansion-panel>
+</mat-accordion>
+</li>
+</ul>
+
+</div>
+    </div>
+    </div>
+    </div>
+ </div>
+<div>
+
+    <router-outlet></router-outlet>
+</div>

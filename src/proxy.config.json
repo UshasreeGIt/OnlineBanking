@@ -1,0 +1,9 @@
+{
+    "/rest/*": {
+      "target": "http://localhost:8090/onlinebanking/",
+      "pathRewrite": {
+        "^/rest": ""
+      },
+      "secure": false
+    }
+  }
